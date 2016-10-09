@@ -1,6 +1,10 @@
-package com.beifeng.test;
+package com.beifeng.test.Java面向对象;
 
 import java.util.Scanner;
+/**
+ * 猜拳游戏
+ * 
+ */
 
 public class CaiQuan
 {

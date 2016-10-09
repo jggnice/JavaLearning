@@ -56,8 +56,6 @@ public class CaiQuan
 
 	public static void main(String[] args)
 	{
-		System.out.println((int) (Math.random() * 3));
-		System.out.println((int) (Math.random() * 3));
 		CaiQuan game = new CaiQuan();
 		game.start();
 		Scanner scanner = new Scanner(System.in);

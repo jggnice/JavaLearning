@@ -1,4 +1,4 @@
-package com.beifeng.test.Java面向对象.李世旺;
+package com.beifeng.test.Java面向对象.A1009;
 
 import java.util.Scanner;
 

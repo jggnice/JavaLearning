@@ -50,6 +50,7 @@ public class CaiQuan
 
 	public void start()
 	{
+		System.out.println();
 		System.out.println("******************欢迎进入游戏世界*********************");
 		System.out.println("\t\t***********");
 		System.out.println("\t\t**猜拳开始**");

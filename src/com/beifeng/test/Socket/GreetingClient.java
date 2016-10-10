@@ -9,31 +9,35 @@ import java.net.Socket;
 
 public class GreetingClient
 {
-	public static void main(String [] args)
-	   {
-	      String serverName = args[0];
-	      int port = Integer.parseInt(args[1]);
-	      try
-	      {
-	         System.out.println("Connecting to " + serverName
-	                             + " on port " + port);
-	         Socket client = new Socket(serverName, port);
-	         System.out.println("Just connected to "
-	                      + client.getRemoteSocketAddress());
-	         OutputStream outToServer = client.getOutputStream();
-	         DataOutputStream out =
-	                       new DataOutputStream(outToServer);
-	 
-	         out.writeUTF("Hello from "
-	                      + client.getLocalSocketAddress());
-	         InputStream inFromServer = client.getInputStream();
-	         DataInputStream in =
-	                        new DataInputStream(inFromServer);
-	         System.out.println("Server says " + in.readUTF());
-	         client.close();
-	      }catch(IOException e)
-	      {
-	         e.printStackTrace();
-	      }
-	   }
+	public static void main(String[] args)
+	{
+		// 目标主机URL
+		String serverName = "192.168.32.79";
+		int port = 80;
+		try
+		{
+			System.out.println("Connecting to Server at " + serverName + " on port "
+					+ port);
+			// //// new Socket //////
+			Socket client = new Socket(serverName, port);
+			//  请求连接
+			System.out.println("Just connected to "
+					+ client.getRemoteSocketAddress());
+			OutputStream outToServer = client.getOutputStream();
+
+			DataOutputStream out = new DataOutputStream(outToServer);
+			// //// Write //////
+			out.writeUTF("---Client: This is Hello from " + client.getLocalSocketAddress());
+			out.writeUTF("---Client: I'm a Client");
+			InputStream inFromServer = client.getInputStream();
+			DataInputStream in = new DataInputStream(inFromServer);
+			// /// Read ///////
+			System.out.println(in.readUTF());
+			System.out.println(in.readUTF());
+			client.close();
+		} catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
 }
